@@ -13,8 +13,27 @@ if (careerList) {
     const title = document.createElement("h2"); title.textContent = job.title;
     const location = document.createElement("div"); location.className = "location"; location.textContent = job.location;
     const description = document.createElement("p"); description.textContent = job.description;
-    const link = document.createElement("a"); link.textContent = "Express Interest";
-    link.href = "mailto:bartholomewconsultingservices@gmail.com?subject=" + encodeURIComponent(job.title + " Inquiry");
+    const link = document.createElement("a"); link.textContent = "Apply";
+    link.href = "#application";
+    link.addEventListener("click", () => {
+      const select = document.getElementById("application-role");
+      if (select) select.value = job.title;
+    });
     card.append(title, location, description, link); careerList.append(card);
+  });
+}
+
+const applicationForm = document.querySelector(".application-form");
+if (applicationForm) {
+  applicationForm.addEventListener("submit", (event) => {
+    const file = document.getElementById("resume-upload")?.files?.[0];
+    const error = document.getElementById("application-error");
+    if (error) { error.hidden = true; error.textContent = ""; }
+    if (!file) return;
+    const ext = file.name.split(".").pop().toLowerCase();
+    if (!["pdf", "doc", "docx"].includes(ext) || file.size > 5 * 1024 * 1024) {
+      event.preventDefault();
+      if (error) { error.textContent = "Please upload a PDF or Word resume no larger than 5 MB."; error.hidden = false; }
+    }
   });
 }

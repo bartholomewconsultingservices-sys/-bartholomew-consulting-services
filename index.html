@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Bartholomew Consulting Services | Complex Challenges. Practical Solutions.</title>
@@ -56,7 +57,8 @@ img,svg{display:block}
 /* Header */
 header{position:sticky;top:0;z-index:50;background:var(--green);border-bottom:1px solid rgba(255,255,255,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
-.logo{display:flex;align-items:center;gap:18px;text-decoration:none}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo-img{display:block;height:44px;width:auto}
 .logo-mark{display:flex;align-items:baseline;line-height:.82}
 .logo-mark b{font-family:var(--head);font-weight:800;font-size:38px;letter-spacing:-.068em;color:var(--white)}
 .logo-mark i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);margin-left:4px}
@@ -132,9 +134,7 @@ header{position:sticky;top:0;z-index:50;background:var(--green);border-bottom:1p
 /* About */
 .about .container{display:flex;flex-wrap:wrap;gap:72px;align-items:center}
 .about-mark{flex:1 1 380px;min-width:0;aspect-ratio:4/5;max-height:560px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:32px}
-.about-mark .logo-mark b{font-size:clamp(88px,10vw,128px)}
-.about-mark .logo-mark i{width:clamp(16px,1.9vw,24px);height:clamp(16px,1.9vw,24px);margin-left:clamp(8px,1vw,14px)}
-.about-mark small{font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.42em;color:var(--white);margin-right:-.42em}
+.about-mark img{width:72%;max-width:360px;height:auto}
 .about-copy{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px}
 .about-copy .lead{line-height:1.7}
 blockquote{margin:8px 0 0;padding:0 0 0 24px;border-left:3px solid var(--orange)}
@@ -188,9 +188,7 @@ footer .container{padding-top:56px;padding-bottom:40px;display:flex;flex-directi
 }
 @media (max-width:520px){
   .container{padding:0 20px}
-  .logo{gap:12px}
-  .logo-mark b{font-size:32px}
-  .logo-rule,.logo-words span{display:none}
+  .logo-img{height:34px}
   .nav-links .btn{padding:0 16px;font-size:14px}
   .hero-copy>p{font-size:18px}
   .foundation,.contact-form{padding:28px 22px}
@@ -204,9 +202,7 @@ footer .container{padding-top:56px;padding-bottom:40px;display:flex;flex-directi
 <header>
   <nav class="container nav" aria-label="Main">
     <a class="logo" href="#top" aria-label="Bartholomew Consulting Services home">
-      <span class="logo-mark" aria-hidden="true"><b>BCS</b><i></i></span>
-      <span class="logo-rule" aria-hidden="true"></span>
-      <span class="logo-words" aria-hidden="true"><b>BARTHOLOMEW</b><span>CONSULTING SERVICES</span></span>
+      <picture><source media="(max-width:520px)" srcset="logo-mark-reversed.svg"><img class="logo-img" src="logo-header.svg" alt="BCS. Bartholomew Consulting Services" width="359" height="44"></picture>
     </a>
     <div class="nav-links">
       <a href="#services">Services</a>
@@ -329,9 +325,8 @@ footer .container{padding-top:56px;padding-bottom:40px;display:flex;flex-directi
 
 <section class="section about" id="about">
   <div class="container">
-    <div class="about-mark" role="img" aria-label="BCS logo">
-      <span class="logo-mark" aria-hidden="true"><b>BCS</b><i></i></span>
-      <small aria-hidden="true">BARTHOLOMEW</small>
+    <div class="about-mark">
+      <img src="logo-stacked-reversed.svg" alt="BCS. Bartholomew Consulting Services logo">
     </div>
     <div class="about-copy">
       <span class="eyebrow">About BCS</span>

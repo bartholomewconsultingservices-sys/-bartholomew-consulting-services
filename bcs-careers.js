@@ -22,18 +22,3 @@ if (careerList) {
     card.append(title, location, description, link); careerList.append(card);
   });
 }
-
-const applicationForm = document.querySelector(".application-form");
-if (applicationForm) {
-  applicationForm.addEventListener("submit", (event) => {
-    const file = document.getElementById("resume-upload")?.files?.[0];
-    const error = document.getElementById("application-error");
-    if (error) { error.hidden = true; error.textContent = ""; }
-    if (!file) return;
-    const ext = file.name.split(".").pop().toLowerCase();
-    if (!["pdf", "doc", "docx"].includes(ext) || file.size > 5 * 1024 * 1024) {
-      event.preventDefault();
-      if (error) { error.textContent = "Please upload a PDF or Word resume no larger than 5 MB."; error.hidden = false; }
-    }
-  });
-}
